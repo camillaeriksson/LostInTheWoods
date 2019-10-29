@@ -1,39 +1,116 @@
-let gameState = [{
-    message: "Det har nu gått tre dagar sedan du kom bort ifrån din vandringsgrupp. Mobilen har dött, du har ingen aning om vart du är och det enda du har i din ryggsäck är ett tält och en tändare. Regnet forsade ner hela natten och ditt tält blev översvämmat. Du inser att du måste göra upp en eld för att hålla dig torr och varm.",
-    question: "Vill du göra upp eld med fuktiga pinnar du hittar på marken, eller ta av dig din t-shirt som du har under tjocktröjan och använda som bränsle?",
-    firstChoice: "Pinnar",
-    secondChoice: "T-shirt",
-    index: {
-        first: 1,
-        second: 2
-    }
-},
+let gameState = [
+    { //Index 0 Start
+        message: "Det har nu gått en vecka sedan du kom bort ifrån din vandringsgrupp. Mobilen har dött sedan länge, det är sen höst och det enda du har i din ryggsäck är ett tält, en kniv och en tändare. Regnet har forsat ner hela natten och ditt tält blev översvämmat. Du inser att du måste göra upp en eld för att hålla dig torr och varm.",
+        question: "Vill du testa göra upp eld med fuktiga pinnar du hittar på marken, eller ta av dig din t-shirt som du har under tjocktröjan att använda för att tända på?",
+        firstChoice: "Pinnar",
+        secondChoice: "T-shirt",
+        index: {
+            first: 1,
+            second: 2
+        }
+    },
 
-{
-    message: "Pinnarna är för fuktiga och går ej att tända eld på.",
-    question: "Vill du använda din t-shirt istället?",
-    firstChoice: "Ja",
-    secondChoice: "Nej",
-    index: {
-        first: 3,
-        second: 4
-    }
-},
+    { //Index 1 Tända eld med pinnar
+        message: "Pinnarna är för fuktiga och går inte att tända eld på.",
+        question: "Vill du använda din t-shirt istället?",
+        firstChoice: "Ja",
+        secondChoice: "Nej",
+        index: {
+            first: 2,
+            second: 3
+        }
+    },
 
-{
-    message: "Du lyckas få fyr på din t-shirt och hittar några halvtorra pinnar som du startar en eld med. Efter en stund är du torr och varm. Du börjar bli rejält matt och inser att du måste hitta mat.",
-    question: "Vill du gå mot öst eller väst för att leta efter mat?",
-    firstChoice: "Öst",
-    secondChoice: "Väst",
-    index: {
-        first: 5,
-        second: 6
+    { //Index 2 Tända eld med t-shirt
+        message: "Du tänder eld på din t-shirt och hittar några halvtorra pinnar som du startar en eld med. Efter en stund är du torr och lite varmare. Du börjar bli rejält matt och inser att du måste hitta mat.",
+        question: "Vill du gå mot öst eller väst för att leta efter mat?",
+        firstChoice: "Öst",
+        secondChoice: "Väst",
+        index: {
+            first: 6,
+            second: 7
     }
-},]
+    },
+
+    { //Index 3 Nej till att försöka med t-shirt istället
+        message: "Eftersom att du inte tycker det är en bra idé att elda upp din t-shirt, så bestämmer du dig istället för att koncentrera dig på mat, då du börjar bli rejält matt.",
+        question: "Vill du gå mot öst eller väst för att leta efter mat?",
+        firstChoice: "Öst",
+        secondChoice: "Väst",
+        index: {
+            first: 4,
+            second: 4
+        }
+    },
+
+    { //Index 4 Gå öst/väst med kall t-shirt
+        message: "Du vandrar en bra bit på jakt efter mat men kylan från dina blöta kläder dränerar dig på krafter. Du faller ihop på marken och kan inte ta dig upp. Du förfryser i din ensamhet med kråkorna skränandes uppifrån trädtopparna.",
+        question: "Vill du spela igen?",
+        firstChoice: "Ja",
+        secondChoice: "Nej",
+        index: {
+            first: 0,
+            second: 5,
+        }
+    },
+
+    { //Index 5 Game Over
+        gameOver: true,
+    },
+
+    { //Index 6 Gå öst efter mat
+        message: "När du vandrat en stund kommer du till en glänta. På marken växer en brun svamp som du nästan är helt säker på är ätlig. Eftersom att du inte ätit något på flera dagar och är desperat, så överväger du att chansa.",
+        question: "Plockar och äter du svampen?",
+        firstChoice: "Ja",
+        secondChoice: "Nej",
+        index: {
+            first: 8,
+            second: 9
+        }
+    },
+
+    { //Index 7 Gå väst efter mat
+        message: "När du vandrat en stund kommer du till en glänta. På en buske växer röda bär, som liknar dem du åt för några dagar sedan utan problem, men du är inte helt säker på att det är samma.",
+        question: "Plockar och äter du bären?",
+        firstChoice: "Ja",
+        secondChoice: "Nej",
+        index: {
+            first:
+            second:
+        }
+    },
+
+    { //Index 8 Ät svamp
+        message: 
+        question: 
+        firstChoice: 
+        secondChoice:
+        index: {
+            first:
+            second:
+        }
+    },
+
+    { //Index 9 Ät INTE svamp
+        message: 
+        question: 
+        firstChoice: 
+        secondChoice:
+        index: {
+            first:
+            second:
+        }
+    },
+]
+
 
 function game(gameState) {
     let index = 0;
     while (true) {
+        if (gameState[index].gameOver === true) {
+            alert("Game Over")
+            return;
+        }
         alert(gameState[index].message);
         let answer = prompt(gameState[index].question);
         if (answer === gameState[index].firstChoice) {
@@ -49,120 +126,3 @@ function game(gameState) {
 }
 
 game(gameState);
-
-// start()
-
-// function start() {
-//     alert("Det har nu gått tre dagar sedan du kom bort ifrån din vandringsgrupp. Mobilen har dött, du har ingen aning om vart du är och det enda du har i din ryggsäck är ett tält och en tändare. Regnet forsade ner hela natten och ditt tält blev översvämmat. Du inser att du måste göra upp en eld för att hålla dig torr och varm.");
-//     let question = "Vill du göra upp eld med fuktiga pinnar du hittar på marken, eller ta av dig din t-shirt som du har under tjocktröjan och använda som bränsle?";
-//     while (true) {
-//         let newAnswer = prompt(question);
-//         if (newAnswer === "Pinnar") {
-//             sticks();
-//             return;
-//         }
-//         else if (newAnswer === "T-shirt") {
-//             tshirt();
-//             return;
-//         }
-//         else if (newAnswer === null) {
-//             return;
-//         }
-//         else {
-//             alert("Du måste ange Pinnar eller T-shirt");
-//         }
-//     }
-// }
-
-// function sticks() {
-//     alert("Pinnarna är för fuktiga och går ej att tända eld på.");
-//     let question = "Vill du använda din t-shirt istället?";
-//     while (true) {
-//         let newAnswer = prompt(question);
-//         if (newAnswer === "Ja") {
-//             tshirt();
-//             return;
-//         }
-//         else if (newAnswer === "Nej") {
-//             doNotUseTshirt();
-//             return;
-//         }
-//         else if (newAnswer === null) {
-//             return;
-//         }
-//         else {
-//             alert("Du måste ange Ja eller Nej");
-//         }
-//     }
-// }
-
-// function tshirt() {
-//     alert("Du lyckas få fyr på din t-shirt och hittar några halvtorra pinnar som du startar en eld med. Efter en stund är du torr och varm. Du börjar bli rejält matt och inser att du måste hitta mat.");
-//     let question = "Vill du gå mot öst eller väst för att leta efter mat?";
-//     while (true) {
-//         let newAnswer = prompt(question);
-//         if (newAnswer === "Öst") {
-//             goEast();
-//             return;
-//         }
-//         else if (newAnswer === "Väst") {
-//             goWest();
-//             return;
-//         }
-//         else if (newAnswer === null) {
-//             return;
-//         }
-//         else {
-//             alert("Du måste ange Öst eller Väst");
-//         }
-//     }
-// }
-
-// function doNotUseTshirt() {
-//     alert("Eftersom att du inte tycker det är en bra idé att elda upp din t-shirt, så bestämmer du dig istället för att koncentrera dig på mat, då du börjar bli rejält matt.");
-//     let question = "Vill du gå mot öst eller väst för att leta efter mat?";
-//     while (true) {
-//         let newAnswer = prompt(question);
-//         if (newAnswer === "Öst") {
-//             tooCold();
-//             return;
-//         }
-//         else if (newAnswer === "Väst") {
-//             tooCold();
-//             return;
-//         }
-//         else if (newAnswer === null) {
-//             return;
-//         }
-//         else {
-//             alert("Du måste ange Öst eller Väst");
-//         }
-//     }
-// }
-
-// function tooCold() {
-//     alert("Du vandrar en bra bit på jakt efter mat men kylan från dina blöta kläder dränerar dig på krafter. Du faller ihop på marken och kan inte ta dig upp. Du förfryser i din ensamhet med kråkorna skränandes uppifrån trädtopparna.");
-//     return;
-// }
-
-// function goEast() {
-//     alert("När du vandrat i 30 min kommer du till en dunge. På marken växer en svamp som du tror är brunsopp. På en buske hänger bär som du tror är krusbär.");
-//     let question = "Plockar och äter du svampen eller bären?";
-//     while (true) {
-//         let newAnswer = prompt(question);
-//         if (newAnswer === "Svampen") {
-//             eatMushroom();
-//             return;
-//         }
-//         else if (newAnswer === "Bären") {
-//             eatBerry();
-//             return;
-//         }
-//         else if (newAnswer === null) {
-//             return;
-//         }
-//         else {
-//             alert("Du måste ange Svampen eller Bären");
-//         }
-//     }
-// }
