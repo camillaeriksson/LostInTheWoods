@@ -1,6 +1,6 @@
 let gameState = [
     { //Index 0 Start
-        message: "Det har nu gått en vecka sedan du kom bort ifrån din vandringsgrupp. Mobilen har dött sedan länge, det är sen höst och det enda du har i din ryggsäck är ett tält, en kniv och en tändare. Regnet har forsat ner hela natten och ditt tält blev översvämmat. Du inser att du måste göra upp en eld för att hålla dig torr och varm.",
+        message: "Det har nu gått två veckor sedan du kom bort ifrån din vandringsgrupp. Mobilen har dött sedan länge, det är sen höst och det enda du har i din ryggsäck är ett tält, en kniv och en tändare. Regnet har forsat ner hela natten och ditt tält blev översvämmat. Du inser att du måste göra upp en eld för att hålla dig torr och varm.",
         question: "Vill du testa göra upp eld med fuktiga pinnar du hittar på marken, eller ta av dig din t-shirt som du har under tjocktröjan att använda för att tända på?",
         firstChoice: "Pinnar",
         secondChoice: "T-shirt",
@@ -59,7 +59,7 @@ let gameState = [
     },
 
     { //Index 6 Gå öst efter mat
-        message: "När du vandrat en stund kommer du till en glänta. På marken växer en brun svamp som du nästan är helt säker på är ätlig. Eftersom att du inte ätit något på flera dagar och är desperat, så överväger du att chansa.",
+        message: "När du vandrat en stund kommer du till en glänta. På marken växer bruna svampar som du är nästan helt säker på är ätliga. Eftersom att du inte ätit något på flera dagar och är desperat, så överväger du att chansa.",
         question: "Plockar och äter du svampen?",
         firstChoice: "Ja",
         secondChoice: "Nej",
@@ -69,36 +69,102 @@ let gameState = [
         }
     },
 
-    { //Index 7 Gå väst efter mat
-        message: "När du vandrat en stund kommer du till en glänta. På en buske växer röda bär, som liknar dem du åt för några dagar sedan utan problem, men du är inte helt säker på att det är samma.",
+    { //Index 7 Gå väst/norr efter mat
+        message: "Efter en stund kommer du till en liten äng. Där växer buskar med röda bär, som liknar dem du åt för några dagar sedan utan problem, men du är inte helt säker på att det är samma.",
         question: "Plockar och äter du bären?",
         firstChoice: "Ja",
         secondChoice: "Nej",
         index: {
-            first:
-            second:
+            first: 10,
+            second:  11
         }
     },
 
     { //Index 8 Ät svamp
-        message: 
-        question: 
-        firstChoice: 
-        secondChoice:
+        message: "30 minuter efter att du ätit svampen börjar skogen snurra, du börjar svettas och faller ihop på marken i fruktansvärda magkramper. Du dör i mossan av förgiftning från svampen.",
+        question: "Vill du spela igen?",
+        firstChoice: "Ja",
+        secondChoice: "Nej",
         index: {
-            first:
-            second:
+            first: 0,
+            second: 5,
         }
     },
 
     { //Index 9 Ät INTE svamp
-        message: 
-        question: 
-        firstChoice: 
-        secondChoice:
+        message: "Du vågar inte chansa utan bestämmer dig för att vandra vidare, trots att dina krafter börjar ta slut.",
+        question: "Vill du fortsätta mot öst, eller vända mot norr?",
+        firstChoice: "Öst",
+        secondChoice: "Norr",
         index: {
-            first:
-            second:
+            first: 11,
+            second: 7
+        }
+    },
+
+    { //Index 10 Ät bären
+        message: "Bären är söta och goda, så du plockar på dig och äter så mycket du kan. Med ny energi vandrar du vidare och kommer till slut till en damm. Vattnet ser riktigt smutsigt ut men du borde verkligen få i dig vätska.",
+        question: "Vill du dricka vattnet, eller gå vidare?",
+        firstChoice: "Dricka",
+        secondChoice: "Gå vidare",
+        index: {
+            first: 12,
+            second: 13 // ÄNDRA
+        }
+    },
+
+    { //Index 11 Öst efter inte ätit
+        message: "Du vandrar vidare med tunga, matta steg och kommer till slut till en damm. Vattnet ser riktigt smutsigt ut men du borde verkligen få i dig vätska.",
+        question: "Vill du dricka vattnet, eller gå vidare?",
+        firstChoice: "Dricka",
+        secondChoice: "Gå vidare",
+        index: {
+            first: 12,
+            second: 13 // ÄNDRA
+        }
+    },
+
+    { //Index 12 Drick vatten
+        message: "Vattnet gjorde susen och du känner dig stärkt att vandra vidare. När du går som djupast inne i dina egna tankar står du plötsligt öga mot öga med en en stor brunbjörn. Tre meter ifrån dig ställer den sig på bakbenen, visar tänderna och vrålar mot dig. Du står blixtstilla i några sekunder, och överväger om du ska springa, eller dra fram din kniv och fightas med björnen.",
+        question: "Tänker du fightas eller springa?",
+        firstChoice: "Fightas",
+        secondChoice: "Springa",
+        index: {
+            first: 14,
+            second: 15 // ÄNDRA
+        }
+    },
+
+    { //Index 13 Drick inte vatten
+        message: "Du går vidare men till slut orkar inte din kropp mer. Det har gått alldeles för många dagar utan vatten, och du dör av vätskebrist.",
+        question: "Vill du spela igen?",
+        firstChoice: "Ja",
+        secondChoice: "Nej",
+        index: {
+            first: 0,
+            second: 5
+        }
+    },
+
+    { //Index 14 Fightas med björnen
+        message: "Du drar din kniv, gör dig så stor som möjligt, vrålar tillbaka mot björnen och slänger dig mot den. Du lyckas få in några hugg och tillslut ger björnen upp och flyr därifrån. Du sätter dig ner på marken och andas ut. Plötsligt hör du en helikopter på avstånd! Du rusar bort till en mer öppen plats för att synas, hoppar, vinkar och skriker.",
+        question: "Grattis! Du överlevde skogen och har blivit räddad! Vill du spela igen?",
+        firstChoice: "Ja",
+        secondChoice: "Nej",
+        index: {
+            first: 0,
+            second: 5
+        }
+    },
+
+    { //Index 15 Springa från björnen
+        message: "Du vänder dig om och börjar springa allt vad du kan. Du hör björnen knappa in på dig, hur den flåsandes och frustande kommer närmare. Du känner hur björnens labb träffar dig i ryggen och du faller mot marken. Björnen sliter dig i stycken.",
+        question: "Vill du spela igen?",
+        firstChoice: "Ja",
+        secondChoice: "Nej",
+        index: {
+            first: 0,
+            second: 5
         }
     },
 ]
