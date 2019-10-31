@@ -178,18 +178,25 @@ function game(gameState) {
             return;
         }
         alert(gameState[index].message);
+        while (true) {
         let answer = prompt(gameState[index].question);
+        if (answer === null) {
+            return;
+        }
         answer = answer.toLowerCase();
         if (answer === gameState[index].firstChoice) {
-            index = gameState[index].index.first
+            index = gameState[index].index.first;
+            break;
         }
         else if (answer === gameState[index].secondChoice) {
-            index = gameState[index].index.second
+            index = gameState[index].index.second;
+            break;
         }
         else {
             alert(`Du måste ange ${gameState[index].firstChoice} eller ${gameState[index].secondChoice}`)
         }
     }
+}
 }
 
 game(gameState);
