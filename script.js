@@ -170,33 +170,43 @@ let gameState = [
 ]
 
 
-function game(gameState) {
-    let index = 0;
-    while (true) {
-        if (gameState[index].gameOver === true) {
-            alert("Game Over")
-            return;
-        }
-        alert(gameState[index].message);
-        while (true) {
-        let answer = prompt(gameState[index].question);
-        if (answer === null) {
-            return;
-        }
-        answer = answer.toLowerCase();
-        if (answer === gameState[index].firstChoice) {
-            index = gameState[index].index.first;
-            break;
-        }
-        else if (answer === gameState[index].secondChoice) {
-            index = gameState[index].index.second;
-            break;
-        }
-        else {
-            alert(`Du måste ange ${gameState[index].firstChoice} eller ${gameState[index].secondChoice}`)
-        }
-    }
-}
-}
+// function game(gameState) {
+//     let index = 0;
+//     while (true) {
+//         if (gameState[index].gameOver === true) {
+//             alert("Game Over")
+//             return;
+//         }
+//         alert(gameState[index].message);
+//         while (true) {
+//         let answer = prompt(gameState[index].question);
+//         if (answer === null) {
+//             return;
+//         }
+//         answer = answer.toLowerCase();
+//         if (answer === gameState[index].firstChoice) {
+//             index = gameState[index].index.first;
+//             break;
+//         }
+//         else if (answer === gameState[index].secondChoice) {
+//             index = gameState[index].index.second;
+//             break;
+//         }
+//         else {
+//             alert(`Du måste ange ${gameState[index].firstChoice} eller ${gameState[index].secondChoice}`)
+//         }
+//     }
+// }
+// }
+
+function printMessage() {
+    let myNode = document.querySelector("ul");
+    myNode.innerHTML = '';
+    gameState.forEach(message => {
+    let listNode = document.createElement('li')
+    let textNode = document.createTextNode(car)
+    listNode.appendChild(textNode)
+    document.querySelector("ul").appendChild(listNode)
+})}
 
 game(gameState);
