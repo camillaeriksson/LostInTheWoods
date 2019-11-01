@@ -1,9 +1,6 @@
 let index = 0;
 getInfoAndQuestion();
 
-const gameTextBox = document.querySelector("div")
-    gameTextBox.scrollTop = gameTextBox.scrollHeight
-
 window.onload = setup;
 
 
@@ -49,7 +46,7 @@ function checkAnswer(answer) {
         }
 
         else {
-            let wrongAnswer = `Du måste ange ${gameState[index].firstChoice} eller ${gameState[index].secondChoice}`;
+            let wrongAnswer = `Du måste ange &quot;${gameState[index].firstChoice}&quot; eller 	&quot;${gameState[index].secondChoice}&quot;`;
             printMessage(wrongAnswer);
             return;
         }
