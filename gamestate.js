@@ -1,3 +1,7 @@
+/**
+ * Array of gamestate objects
+ * @typedef {{message: string, question: string, first: number, second: number}} - Game state
+ */
 let gameState = [
     { //Index 0 Start
         message: "Det har nu gått två veckor sedan du kom bort ifrån din vandringsgrupp. Mobilen har dött sedan länge, det är sen höst och det enda du har i din ryggsäck är ett tält, en kniv och en tändare. Regnet har forsat ner hela natten och ditt tält blev översvämmat. Du inser att du måste göra upp en eld för att hålla dig torr och varm.",

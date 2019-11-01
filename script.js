@@ -1,16 +1,25 @@
+/**
+ * Starts at index 0 in array
+ */
 let index = 0;
 getInfoAndQuestion();
 
 window.onload = setup;
 
-
+/**
+ * Takes the parameters message and question from objects in array
+ * and sends it to printMessage()
+ */
 function getInfoAndQuestion() {
     printMessage(gameState[index].message);
     printMessage(gameState[index].question);
     return;
 }
 
-
+/**
+ * Adds message/question/answer from array to list
+ * @param {sting} message - Message/question/answer
+ */
 function printMessage(message) {
     let ulNode = document.querySelector("ul");
     let listNode = document.createElement('li');
@@ -18,10 +27,16 @@ function printMessage(message) {
     ulNode.appendChild(listNode);
 }
 
+/**
+ * Applies keyup event on input field
+ */
 function setup() {
     document.querySelector('input').addEventListener("keyup", handleKeyUp);
 }
 
+/**
+ * Handles keyup on enter and sends the input answer to printMessage()
+ */
 function handleKeyUp(event) {
     if (event.key === "Enter") {
         let answer = event.target.value;
@@ -32,6 +47,11 @@ function handleKeyUp(event) {
     }
 }
 
+/**
+ * Takes input from user and compares it to the attributes of the objects in the array
+ * and goes to the next correct index in array
+ * @param {sting} answer - Input from user
+ */
 function checkAnswer(answer) {
     while (true) {
         if (answer === gameState[index].firstChoice) {
