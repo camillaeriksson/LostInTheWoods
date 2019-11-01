@@ -55,7 +55,14 @@ let gameState = [
     },
 
     { //Index 5 Game Over
-        gameOver: true,
+        message: "Game over",
+        question: "",
+        firstChoice: "",
+        secondChoice: "",
+        index: {
+            first: null,
+            second: null
+        }
     },
 
     { //Index 6 Gå öst efter mat
