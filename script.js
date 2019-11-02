@@ -17,7 +17,7 @@ function getInfoAndQuestion() {
 }
 
 /**
- * Adds message/question/answer from array to list
+ * Adds message/question from array and aswer to list
  * @param {sting} message - Message/question/answer
  */
 function printMessage(message) {
