@@ -54,7 +54,13 @@ function handleKeyUp(event) {
  */
 function checkAnswer(answer) {
     while (true) {
-        if (answer === gameState[index].firstChoice) {
+
+        if (index === 5) {
+            getInfoAndQuestion();
+            close();
+            return;
+        }
+        else if (answer === gameState[index].firstChoice) {
             index = gameState[index].index.first;
             getInfoAndQuestion();
             return;

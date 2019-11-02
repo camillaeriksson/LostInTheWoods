@@ -59,7 +59,7 @@ let gameState = [
     },
 
     { //Index 5 Game Over
-        message: "Game over",
+        message: "Spelet är slut. Tryck enter för att stänga fönstret.",
         question: "",
         firstChoice: "",
         secondChoice: "",
