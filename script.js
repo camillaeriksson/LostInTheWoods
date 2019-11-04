@@ -4,7 +4,7 @@
 let index = 0;
 getInfoAndQuestion();
 
-window.onload = setup;
+window.onload = setup();
 
 /**
  * Takes the parameters message and question from objects in array
