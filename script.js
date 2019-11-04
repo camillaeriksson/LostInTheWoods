@@ -1,24 +1,24 @@
 /**
- * Starts at index 0 in array
+ * Starts at index 0 in game state array
  */
 let index = 0;
-getInfoAndQuestion();
+getInfoAndQuestion(gameState[index]);
 
-window.onload = setup();
+setup();
 
 /**
  * Takes the parameters message and question from objects in array
  * and sends it to printMessage()
+ * @param {GameState} currentGameState Information about the current state of the game
  */
-function getInfoAndQuestion() {
-    printMessage(gameState[index].message);
-    printMessage(gameState[index].question);
-    return;
+function getInfoAndQuestion(currentGameState) {
+    printMessage(currentGameState.message);
+    printMessage(currentGameState.question);
 }
 
 /**
  * Adds message/question from array and aswer to list
- * @param {sting} message - Message/question/answer
+ * @param {String} message - Message/question/answer
  */
 function printMessage(message) {
     let ulNode = document.querySelector("ul");
@@ -36,6 +36,7 @@ function setup() {
 
 /**
  * Handles keyup on enter and sends the input answer to printMessage()
+ * @param {KeyboardEvent} event Built in event in Java Script
  */
 function handleKeyUp(event) {
     if (event.key === "Enter") {
@@ -50,24 +51,24 @@ function handleKeyUp(event) {
 /**
  * Takes input from user and compares it to the attributes of the objects in the array
  * and goes to the next correct index in array
- * @param {sting} answer - Input from user
+ * @param {String} answer - Input from user
  */
 function checkAnswer(answer) {
     while (true) {
 
         if (index === 5) {
-            getInfoAndQuestion();
+            getInfoAndQuestion(gameState[index]);
             close();
             return;
         }
         else if (answer === gameState[index].firstChoice) {
             index = gameState[index].index.first;
-            getInfoAndQuestion();
+            getInfoAndQuestion(gameState[index]);
             return;
         }
         else if (answer === gameState[index].secondChoice) {
             index = gameState[index].index.second;
-            getInfoAndQuestion();
+            getInfoAndQuestion(gameState[index]);
             return;
         }
 
